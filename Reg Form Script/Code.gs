@@ -1,7 +1,7 @@
  function updatingQuestions(){
  
-  //update form ID
-  var form = FormApp.openById('16Po87AITQ6pXu443ntYFCAQIt86Ti7FYHi6rx4QjAMA');
+  //UPDATE WITH JUDGING REGISTRATION GOOLGE FORM
+  var form = FormApp.openById('MY_FORM_ID');
   var allResponses = form.getResponses();
   var friTaken =0;
   var satATaken = 0;
@@ -22,10 +22,11 @@
       }
   }
  
- var judgingSpread = SpreadsheetApp.openById('16Ibffg5qYQiMBya6X34xggPl4QdJtZCZP_9gBML9L1A');
+  //UPDATE WITH PUBLIC JUDGING SPREADSHEET ID
+ var judgingSpread = SpreadsheetApp.openById('MY_SPREADSHEET_ID');
  
- //update sheet name
- var range = judgingSpread.getSheetByName("Sheet1").getDataRange();
+ //UPDATE WITH APPROPRIATE SHEET
+ var range = judgingSpread.getSheetByName("MY_SHEET").getDataRange();
   
   var friQuota = range.getCell(range.getNumRows(), 2).getValue();
   var satAQuota = range.getCell(range.getNumRows(), 3).getValue();
