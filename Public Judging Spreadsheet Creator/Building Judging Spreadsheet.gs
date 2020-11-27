@@ -1,8 +1,9 @@
 function updateJudgeSpread() {
- var formResponses = SpreadsheetApp.openById('1t-0RAclie4O-9J9aEy1OxodA63ZO8vjPX8I0fR1D1_0');
+ //UPDATE WITH SPREADSHEET LINKED TO GOOGLE REGISTRATION FORM
+ var formResponses = SpreadsheetApp.openById('MY_FORM_ID');
  
- //update sheet name
- var range = formResponses.getSheetByName("Sheet1").getDataRange();
+ //UPDATE WITH SHEET NAME
+ var range = formResponses.getSheetByName("MY_SHEET").getDataRange();
  var newestEntry = range.getNumRows();
  var slot = range.getCell(newestEntry, 6).getValue();
  var name = range.getCell(newestEntry, 2).getValue(); 
@@ -16,10 +17,11 @@ function updateJudgeSpread() {
      column = 3;
  }
  
- var judgingSpread = SpreadsheetApp.openById('16Ibffg5qYQiMBya6X34xggPl4QdJtZCZP_9gBML9L1A');
+ //UPDATE WITH SPREADSHEET THAT WILL BE PUBLIC
+ var judgingSpread = SpreadsheetApp.openById('PUBLIC_JUDGING_SPREADSHEET_ID');
  
- //update sheet name
- var range2 = judgingSpread.getRange("Sheet1!A1:D13"); 
+ //UPDATE WITH SHEET NAME/RANGE
+ var range2 = judgingSpread.getRange("MY_PUBLIC_SHEET!A1:D13"); 
  
  for (var i = 2; i<10; i++){
    var cell = range2.getCell(i, column+1);
