@@ -1,10 +1,10 @@
 # Better Signup Genius
  
 A better alternative to SignUpGenius (blegh). This is a Google App Scripts Application that will 
-    1. take responses from a google form that you create
-    2. Create a nicely formatted "Public Judging Spreadsheet" that displays the name of each slot along with the names of the people who have signed up for that slot and displays        the quota for volunteers required for the slot.
-    3. Create a private "Judging Registration Forms Spreadsheet" that displays private information for each volunteer (think emails and contact information that you don't want to        display to everyone).  
-    4. Adjust possible question choices (specifically what slots you can sign up for) on the Google Form to prevent the exceeding of quotas.
+1. take responses from a google form that you create
+2. Create a nicely formatted "Public Judging Spreadsheet" that displays the name of each slot along with the names of the people who have signed up for that slot and displays        the quota for volunteers required for the slot.
+3. Create a private "Judging Registration Forms Spreadsheet" that displays private information for each volunteer (think emails and contact information that you don't want to        display to everyone).  
+4. Adjust possible question choices (specifically what slots you can sign up for) on the Google Form to prevent the exceeding of quotas.
     
 This project is currently a very loose framework that is meant to be adapted for your needs and purposes. 
 As is, you can use this project to create a Public Judging Spreadsheet like this one (https://docs.google.com/spreadsheets/d/16Ibffg5qYQiMBya6X34xggPl4QdJtZCZP_9gBML9L1A/edit?usp=sharing) with 3 slots that an adjustable number of volunteers can sign up for.
