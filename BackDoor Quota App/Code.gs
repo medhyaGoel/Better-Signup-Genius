@@ -12,11 +12,14 @@ function include(filename) {
 
 
 function processForm(formObject) {
-   
- var judgingSpread = SpreadsheetApp.openById('16Ibffg5qYQiMBya6X34xggPl4QdJtZCZP_9gBML9L1A');
- //update sheet name
- var sheet = judgingSpread.getSheetByName("Sheet1");
- var range = judgingSpread.getRange("Sheet1!A1:D13");
+ 
+ //UPDATE SHEET ID!
+ var judgingSpread = SpreadsheetApp.openById('MY_ID');
+ 
+ //UPDATE SHEET NAME!
+ var sheet = judgingSpread.getSheetByName("MY_SHEET");
+ //UPDATE RANGE TO MORE THAN ENCOMPASS DATA RANGE
+ var range = judgingSpread.getRange("MY_SHEET!A1:D13");
 
 
   sheet.getRange("A2:A"+sheet.getDataRange().getNumRows()).clear();
