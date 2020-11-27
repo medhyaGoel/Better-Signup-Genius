@@ -1,3 +1,7 @@
+//update these
+var judgingSpread = SpreadsheetApp.openById('1wAdhEPbA7YijAwIJCpCvU0Gm5CiVo88W9O9dMbxkvYk');
+var sheetName = "Sheet1";
+
 function doGet() {
   var html = HtmlService.createTemplateFromFile('index').evaluate()
       .setTitle('Quota Web App')
@@ -12,14 +16,10 @@ function include(filename) {
 
 
 function processForm(formObject) {
+   
  
- //UPDATE SHEET ID!
- var judgingSpread = SpreadsheetApp.openById('MY_ID');
- 
- //UPDATE SHEET NAME!
- var sheet = judgingSpread.getSheetByName("MY_SHEET");
- //UPDATE RANGE TO MORE THAN ENCOMPASS DATA RANGE
- var range = judgingSpread.getRange("MY_SHEET!A1:D13");
+ var sheet = judgingSpread.getSheetByName(sheetName);
+ var range = judgingSpread.getRange(sheetName + "!A1:D13");
 
 
   sheet.getRange("A2:A"+sheet.getDataRange().getNumRows()).clear();
