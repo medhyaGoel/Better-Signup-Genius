@@ -12,7 +12,8 @@ In order to operate this project with minimum additional effort on your part, yo
 1. create a "Judging Registration" Google Form with the same number and type of questions as are on this form (https://docs.google.com/forms/d/e/1FAIpQLSfNy9VrA1_lGsb-RfpRSrkvMCFJsaPt86oHPHmNmlPCcwUpBQ/viewform). Link this form to a "Judging Registration Responses" spreadsheet of your choice.
 2. Link a google app script with the "Judging Registration" Google Form and copy in the "Reg Form" code. Create 2 on-form-submit triggers, 1 for updateJudgeSpread() and 1 for updatingQuestions().
 3. Create a "Public Judging Spreadsheet." Title the first row as "volunteers", "slot 1", "slot 2", "slot 3", etc.
-4. Create a google app script with all three of the "Backdoor Quota App files." Deploy as a web app and use to easily update judging quotas.
+4. Update ids in the Code.gs files of "Background Quota App" and "Reg Form Script"
+5. Create a google app script with all three of the "Backdoor Quota App files." Deploy as a web app and use to easily update judging quotas.
     
     
 And that's it! Thanks for reading, and I hope that this makes your life easier! Down with signUpGenius.
