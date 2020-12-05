@@ -1,6 +1,6 @@
 //update these
-var judgingSpread = SpreadsheetApp.openById('1wAdhEPbA7YijAwIJCpCvU0Gm5CiVo88W9O9dMbxkvYk');
-var sheetName = "Sheet1";
+var judgingSpread = SpreadsheetApp.openById('myID');
+var sheetName = "mySheet1";
 
 function doGet() {
   var html = HtmlService.createTemplateFromFile('index').evaluate()
