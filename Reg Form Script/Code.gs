@@ -1,9 +1,9 @@
 //update these
-var form = FormApp.openById('12dDlayXNbX2a9TFuqe7ykScv-oqIGKxkjW5XADeYMTM'); 
-var judgingSpread = SpreadsheetApp.openById('1wAdhEPbA7YijAwIJCpCvU0Gm5CiVo88W9O9dMbxkvYk');
-var judgingSheetName = "Sheet1";
-var formResponses = SpreadsheetApp.openById('17S99EGYEThbBQw9jnA3km-wL4OzNONV7K5Dg6jmfpHA');
-var formResponseSheetName = "Sheet1";
+var form = FormApp.openById('myID1'); 
+var judgingSpread = SpreadsheetApp.openById('myID2');
+var judgingSheetName = "mySheet1";
+var formResponses = SpreadsheetApp.openById('myID3');
+var formResponseSheetName = "MySheet2";
 
 
  function updatingQuestions(){
