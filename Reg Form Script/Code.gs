@@ -1,10 +1,18 @@
 //update these
-var form = FormApp.openById('myId'); 
-var judgingSpread = SpreadsheetApp.openById('myId');
-var judgingSheetName = "sheetName";
-var slotNames = ["slot1", "slot2", "slot3", "slot4"];
-var quotas2 = [quota1, quota2, quota3, quota4];
+var form = FormApp.openById('12dDlayXNbX2a9TFuqe7ykScv-oqIGKxkjW5XADeYMTM'); 
+var judgingSpread = SpreadsheetApp.openById('1wAdhEPbA7YijAwIJCpCvU0Gm5CiVo88W9O9dMbxkvYk');
+var judgingSheetName = "Final";
+var slotNames = ["Friday", "Saturday A", "Saturday B", "Asynch"];
+var quotas2 = [2, 1, 1, 1];
 
+//which question's answer is displayed on the public spreadsheet? (Ex. if I'm displaying names and the first question asks for a name, var displayQ = 1).
+var displayQ = 1; 
+
+//which of the multiple choice questions asks for the slot? (If my first MCQ asks for the slot, var slotMCQ = 1. If my second MCQ asks for the slot, var slotMCQ = 2).
+var slotMCQ = 2;
+
+//which overall question asks for the slot? (If the fourth question in the form asks for the slot, var slotQ = 4. If my first MCQ but my 3rd overall questions asks for the slot, var slotQ = 3).
+var slotQ = 6;
 
 /**
                         *** LIMIT OF 25 SLOTS********
@@ -28,18 +36,21 @@ var quotas2 = [quota1, quota2, quota3, quota4];
 
 //----------------------------------------Everything below here is logic (don't need to touch) ------------------------------------------------------------------//
 
+slotQ--;
+slotMCQ--;
+displayQ--;
 var taken = new Array(slotNames.length);
+
 
 function resetOriginal(){
         var formItems = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE);
-        formItems[0].asMultipleChoiceItem().setChoiceValues(slotNames);
+        formItems[slotMCQ].asMultipleChoiceItem().setChoiceValues(slotNames);
     }
-
 
 
 function reset(){
         var formItems = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE);
-        formItems[0].asMultipleChoiceItem().setChoiceValues(["There are no more slots left."]);
+        formItems[slotMCQ].asMultipleChoiceItem().setChoiceValues(["There are no more slots left."]);
     }
 
 
@@ -53,12 +64,12 @@ function reset(){
   var formItems = form.getItems(FormApp.ItemType.MULTIPLE_CHOICE);
   for (var response = 0; response<allResponses.length; response++){
     var responseAnswers = allResponses[response].getItemResponses();
-    if(slotNames.indexOf(responseAnswers[4].getResponse()) == -1 || slotNames.indexOf(responseAnswers[4].getResponse()) == "There are no more slots left." ){
+       
+    if(slotNames.indexOf(responseAnswers[slotQ].getResponse()) == -1 || responseAnswers[slotQ].getResponse() == "There are no more slots left." ){
           reset();
           return;
           }
-    var slot = responseAnswers[4].getResponse();
-    var placeholder;
+    var slot = responseAnswers[slotQ].getResponse();
     
     for(var i = 0; i<slotNames.length; i++){
         if (slot == slotNames[i]) {
@@ -66,9 +77,7 @@ function reset(){
         }
      }
   }
-  
-  Logger.log("taken: " + taken);
-
+ 
   //updating multiple choice
   var choices = new Array();
   
@@ -77,15 +86,12 @@ function reset(){
           choices.push(slotNames[i]);
           }
   }
-  
-  Logger.log("choices: " + choices);
-  
+    
   if(choices.length < 1){ 
-         Logger.log("yay");
          reset();
          return;
   } else{
-      formItems[0].asMultipleChoiceItem().setChoiceValues(choices);  
+      formItems[slotMCQ].asMultipleChoiceItem().setChoiceValues(choices);  
   }  
 }
 
@@ -95,8 +101,8 @@ function updateJudgeSpread() {
  
   var allResponses = form.getResponses();
   var responseAnswers = allResponses[allResponses.length - 1].getItemResponses();
-  var name = responseAnswers[0].getResponse();
-  var slot = responseAnswers[4].getResponse();
+  var name = responseAnswers[displayQ].getResponse();
+  var slot = responseAnswers[slotQ].getResponse();
  
  var maxQuota = Math.max(...quotas2);
  
@@ -108,7 +114,6 @@ var column = slotNames.length;
   }
  
  var range2 = judgingSpread.getRange(judgingSheetName + "!A1:Z"+ (maxQuota + 3)); 
- Logger.log("column = " + column);
  if (column == slotNames.length){
      return;
  }
@@ -120,7 +125,6 @@ var column = slotNames.length;
    var cell = range2.getCell(i, column + 2);
    if(cell.isBlank()){
      cell.setValue(name);
-     Logger.log("here I am");
      break;
    }
  }
