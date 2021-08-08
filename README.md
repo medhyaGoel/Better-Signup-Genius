@@ -1,14 +1,14 @@
 # Better Signup Genius
  
-An alternative to SignUpGenius (blegh). This Google App Scripts Application will 
+An alternative to SignUpGenius. This Google App Scripts Application will 
 1. Create and record responses from a "Volunteer Sign-up" Google form.  
-2. Create a "Public Judging Spreadsheet" that displays volunteer quotas for each slot, the name of each slot, and just the names of the people who have signed up for that slot (Only the form owner will see the rest of the information provided).
+2. Create a "Public Judging Spreadsheet" that displays volunteer quotas for each slot, the name of each slot, and the names of the people who have signed up for that slot (Only the form owner will see the rest of the information provided).
 3. People can only sign up for slots if they are still available.
-3. Easily adjust the number of volunteers per slot, and slots and update options on the "Volunteer Sign-Up" form accordingly.
+3. Easily adjust the number of volunteers per slot, slots and update options on the "Volunteer Sign-Up" form accordingly.
     
 This program lets you create sign-ups with up to 25 slots and unlimited quotas. 
 As is, this program creates a public judging Spreadsheet like this one (https://docs.google.com/spreadsheets/d/16Ibffg5qYQiMBya6X34xggPl4QdJtZCZP_9gBML9L1A/edit?usp=sharing).
-Any Google Form with 5 questions, the 1st asking for a name and the last being the only multiple choice question and asking for preffered slot will work. This public spreadsheet was created using this form: https://docs.google.com/forms/d/e/1FAIpQLSfNy9VrA1_lGsb-RfpRSrkvMCFJsaPt86oHPHmNmlPCcwUpBQ/viewform
+Any Google Form with 5 questions, the 1st asking for a name and the last being the only multiple choice question and asking for preferred slot will work. This public spreadsheet was created using this form: https://docs.google.com/forms/d/e/1FAIpQLSfNy9VrA1_lGsb-RfpRSrkvMCFJsaPt86oHPHmNmlPCcwUpBQ/viewform
 
 To operate this project:
 1. Create your own "Volunteer Sign-ups" Google Form. It should have 5 questions, the 1st asking for the name that will be displayed to everyone, and the 5th being the only multiple choice question and asking for the slot. 
@@ -30,4 +30,4 @@ To operate this project:
                               5. Re-Embed "public" sheet on website
                               6. OPTIONAL: link form to a new responses spreadsheet
     
-I hope that this makes your life a little bit easier! Down with signUpGenius.
+I hope that this makes your life a little bit easier!
